@@ -4,13 +4,6 @@ import java.util.ArrayList;
 
 import static com.task1.fileSearch.SortByName.minusMillis;
 
-/**
- * "Sort by date" class contains methods that operate list of dates
- * and return values
- *
- * @author a2.verbitsky
- * @version 1.0
- */
 class SortByDate {
 
     /**
@@ -22,11 +15,8 @@ class SortByDate {
     static FileTime getNewestFileDate(ArrayList<FileTime> dates){
         FileTime recentFile = dates.get(0);
         for (FileTime date : dates) {
-            if (recentFile.compareTo(date) > 0) {
-            } else {
-                if (recentFile.compareTo(date) < 0) {
-                    recentFile = date;
-                }
+            if (recentFile.compareTo(date) < 0) {
+                recentFile = date;
             }
         }
         return recentFile;

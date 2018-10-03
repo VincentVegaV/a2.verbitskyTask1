@@ -2,14 +2,6 @@ package com.task1.fileSearch;
 import java.nio.file.attribute.FileTime;
 import java.util.ArrayList;
 
-
-/**
- * "Sort by name" class contains methods that operate list of names
- * and return values
- *
- * @author a2.verbitsky
- * @version 1.0
- */
 class SortByName {
 
     /**
