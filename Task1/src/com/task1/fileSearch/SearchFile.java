@@ -23,13 +23,12 @@ import java.util.regex.Pattern;
         this.fileExtension = fileExtension;
     }
 
-    ResourceBundle resourceBundleConfig = ResourceBundle.getBundle(
+    private ResourceBundle resourceBundleConfig = ResourceBundle.getBundle(
             "Resources.Config", Locale.getDefault());
 
      Map<String, FileTime> returnListOfFileNameAndDate() throws IOException {
 
-        //patternString = resourceBundleConfig.getString("patternString");
-        String patternString = ".\\." + fileExtension + "$";
+        String patternString = resourceBundleConfig.getString("patternString") + fileExtension;
 
         f = new File(filePath);
         arrayFiles = f.listFiles();
