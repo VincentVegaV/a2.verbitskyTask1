@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
  class SortFile {
 
-     static Map<String, FileTime> sortListOfFilesDESC(Map<String, FileTime> unsortedMap){
+     static Map<String, FileTime> sortListOfFilesByDateDESC(Map<String, FileTime> unsortedMap){
 
         Map<String, FileTime> sortedMap = unsortedMap.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))

@@ -8,7 +8,7 @@ class Runner {
         SearchFile search = new SearchFile(args[0], args[1]);
 
         try{
-            PrintFile.printFiles(SortFile.sortListOfFilesDESC(search.returnListOfFileNameAndDate()));
+            PrintFile.printFiles(SortFile.sortListOfFilesByDateDESC(search.returnListOfFileNameAndDate()));
         }catch (IOException e) {
             e.printStackTrace();
         }

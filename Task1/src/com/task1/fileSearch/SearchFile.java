@@ -14,25 +14,21 @@ import java.util.regex.Pattern;
  class SearchFile {
     private String filePath;
     private String fileExtension;
-    private File f;
-    private File[] arrayFiles;
-    private Pattern p;
 
-    SearchFile(String filePath, String fileExtension){
+     SearchFile(String filePath, String fileExtension){
         this.filePath = filePath;
         this.fileExtension = fileExtension;
     }
 
-    private ResourceBundle resourceBundleConfig = ResourceBundle.getBundle(
-            "Resources.Config", Locale.getDefault());
+    private ResourceBundle resourceBundleConfig = ResourceBundle.getBundle("Resources.Config");
 
-     Map<String, FileTime> returnListOfFileNameAndDate() throws IOException {
+     Map<String, FileTime> returnListOfFileNameAndDate() throws IOException, NullPointerException {
 
         String patternString = resourceBundleConfig.getString("patternString") + fileExtension;
 
-        f = new File(filePath);
-        arrayFiles = f.listFiles();
-        p = Pattern.compile(patternString);
+        File f = new File(filePath);
+        File[] arrayFiles = f.listFiles();
+        Pattern p = Pattern.compile(patternString);
 
         Map<String, FileTime> fileList = new LinkedHashMap<>();
 
