@@ -1,4 +1,24 @@
 package com.task1.fileSearch;
 
-public class PrintFile {
+import java.nio.file.attribute.FileTime;
+import java.time.ZoneId;
+import java.util.Map;
+import java.util.ResourceBundle;
+
+ class PrintFile {
+     static void printFiles(Map<String, FileTime> list){
+        ResourceBundle resourceBundleConfig = ResourceBundle.getBundle("Resources.Config");
+
+        Map.Entry<String, FileTime> newestFile = list.entrySet().iterator().next();
+
+        long value = newestFile.getValue().toMillis() - Long.parseLong(resourceBundleConfig.getString("timeDifference"));
+
+        for (Map.Entry<String, FileTime> mapEntry : list.entrySet()){
+            if(mapEntry.getValue().toMillis() >= value){
+                System.out.println(mapEntry.getKey() + ": \n" + mapEntry.getValue().toInstant().atZone(ZoneId.systemDefault()));
+            }
+
+        }
+    }
+
 }
