@@ -6,24 +6,19 @@ import java.util.Arrays;
 class ArraySubtraction
 {
 
-    String[] getSubtractedArray(String[] array1, String[] array2)
-    {
+    String[] getSubtractedArray(String[] array1, String[] array2) {
         int resL = 0;
         String[] res = new String[array1.length];
         boolean isFound;
 
-        for(int i=0; i<=array1.length-1; i++)
-        {
+        for(int i=0; i<=array1.length-1; i++) {
             isFound = false;
-            for(int j=0; j<=array2.length-1; j++)
-            {
-                if(array1[i].equals(array2[j]))
-                {
+            for(int j=0; j<=array2.length-1; j++) {
+                if(array1[i].equals(array2[j])) {
                     isFound = true;
                 }
             }
-            if (!isFound)
-            {
+            if (!isFound) {
                 res[resL] = array1[i];
                 resL++;
             }
@@ -35,8 +30,7 @@ class ArraySubtraction
         return dest_arr;
     }
 
-    ArrayList<String> getSubtractedCollection(String[] array1, String[] array2)
-    {
+    ArrayList<String> getSubtractedCollection(String[] array1, String[] array2) {
         ArrayList<String> arrayList1 = new ArrayList<>(Arrays.asList(array1));
         ArrayList<String> arrayList2 = new ArrayList<>(Arrays.asList(array2));
 
