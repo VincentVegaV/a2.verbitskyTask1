@@ -35,9 +35,12 @@ public class FileOperations {
      */
     void cutAndSaveCases(){
 
+        ResourceBundle resourceBundleConfig = ResourceBundle.getBundle("Resources.config");
+
         File file = new File(inputHandler.getPath());
 
-        resultFileName = file.getPath().replaceFirst("[.][^.]+$", "_res.txt");
+        resultFileName = file.getPath().replaceFirst(resourceBundleConfig.getString("regex"),
+                                                resourceBundleConfig.getString("replacement"));
         File resultFile = new File(resultFileName);
 
         try{
