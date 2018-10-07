@@ -39,7 +39,7 @@ public class FileOperations {
 
         File file = new File(inputHandler.getPath());
 
-        resultFileName = file.getPath().replaceFirst(resourceBundleConfig.getString("regex"),
+        resultFileName = file.getPath().replaceFirst("[.][^.]+$",
                                                 resourceBundleConfig.getString("replacement"));
         File resultFile = new File(resultFileName);
 
