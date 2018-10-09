@@ -3,12 +3,7 @@ package com.task1.Cases;
 import java.util.Scanner;
 import java.io.*;
 
-/**
- * "InputHandler" class reads and validate strings from console input
- *
- * @author a2.verbitsky
- * @version 1.0
- */
+
 public class InputHandler {
     /**Field for saving file path string*/
     private String path = "";
@@ -19,11 +14,6 @@ public class InputHandler {
 
     Scanner scanner = new Scanner(System.in);
 
-    /**
-     * Method validate empty path string and file existing
-     *
-     * @return file path string
-     */
     String getPath() {
 
         while (path.trim().equals("")) {
