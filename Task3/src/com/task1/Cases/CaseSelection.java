@@ -8,9 +8,19 @@ import java.util.ResourceBundle;
 
 class CaseSelection {
     private ResourceBundle resourceBundleConfig = ResourceBundle.getBundle("Resources.config");
+    private String numberCases = resourceBundleConfig.getString("defaultNumberOfCases");
+    private String path;
 
-    List<String> cutAndPaste(List<String> initialList, String numberCases){
+    CaseSelection(String path, String numberCases){
+        if(numberCases != null){
+            this.numberCases = numberCases;
+        }
+        this.path = path;
+    }
+
+    List<String> cutAndPaste(List<String> initialList){
         int n = Integer.parseInt(numberCases);
+
         int headerPosition = Integer.parseInt(resourceBundleConfig.getString("headerPosition"));
         String header = initialList.get(headerPosition);
         initialList.remove(headerPosition);

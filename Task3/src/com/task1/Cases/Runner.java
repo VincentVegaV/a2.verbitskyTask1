@@ -6,14 +6,14 @@ import java.util.List;
 public class Runner {
     public static void main(String[] args) {
         SearchCases search = new SearchCases(args[0]);
-        CaseSelection select = new CaseSelection();
+        CaseSelection select = new CaseSelection(args[0], args[1]);
         List<String> initialList;
 
         try{
             initialList = search.searchAndReturnCasesFromFile();
 
             for (String x:
-                    select.cutAndPaste(initialList, args[1])) {
+                    select.cutAndPaste(initialList)) {
                 System.out.println("\n" + x);
             }
 

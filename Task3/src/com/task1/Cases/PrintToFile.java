@@ -14,7 +14,7 @@ public class PrintToFile {
     //нужно либо сделать один метод для печати обоих файлов
     //либо метод, который можно переиспользовать для каждого файла поотдельности
     //(есть сложность, т.к. для второго файла нужно вывести путь в консоль, а для первого нет)
-    void printCases(List<String> list, String path) throws IOException {
+    void printCasesToInitialFile(List<String> list, String path) throws IOException {
         File file = new File(path);
         resultFileName = file.getPath().replaceFirst(resourceBundleConfig.getString("regex"),
                 resourceBundleConfig.getString("replacement"));
@@ -26,5 +26,7 @@ public class PrintToFile {
             writer.write("\n" + x);
         }
     }
+
+
 
 }
