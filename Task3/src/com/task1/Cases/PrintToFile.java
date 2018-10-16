@@ -6,27 +6,29 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class PrintToFile {
-    String path;
-    String resultFileName;
-    ResourceBundle resourceBundleConfig = ResourceBundle.getBundle("Resources.config");
+class PrintToFile {
+    private String resultFileName;
+    private ResourceBundle resourceBundleConfig = ResourceBundle.getBundle("Resources.config");
 
-    //нужно либо сделать один метод для печати обоих файлов
-    //либо метод, который можно переиспользовать для каждого файла поотдельности
-    //(есть сложность, т.к. для второго файла нужно вывести путь в консоль, а для первого нет)
-    void printCasesToInitialFile(List<String> list, String path) throws IOException {
-        File file = new File(path);
-        resultFileName = file.getPath().replaceFirst(resourceBundleConfig.getString("regex"),
+    void printCasesToFiles(List<String> initialList, List<String> resultList, String path) throws IOException {
+        File initialFile = new File(path);
+        resultFileName = initialFile.getPath().replaceFirst(resourceBundleConfig.getString("regex"),
                 resourceBundleConfig.getString("replacement"));
         File resultFile = new File(resultFileName);
 
-        FileWriter writer = new FileWriter(file, false);
+        FileWriter initialWriter = new FileWriter(initialFile, false);
         for (String x:
-                list) {
-            writer.write("\n" + x);
+                initialList) {
+            initialWriter.write(x + "\n");
         }
+        FileWriter resultWriter = new FileWriter(resultFile, false);
+        for (String q:
+                resultList){
+            resultWriter.write(q + "\n");
+        }
+        initialWriter.close();
+        resultWriter.close();
+
+        System.out.println(resultFileName);
     }
-
-
-
 }
